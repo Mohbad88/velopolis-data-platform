@@ -1,0 +1,17 @@
+# Extraction
+requests==2.32.3
+beautifulsoup4==4.12.3
+
+# API REST
+Flask==3.0.3
+PyJWT==2.9.0
+
+# Base de données (PostgreSQL ; SQLite via la bibliothèque standard)
+psycopg[binary]==3.2.3
+
+# Système big data (optionnel : seulement si HIVE_HOST est renseigné)
+# PyHive[hive]==0.7.0
+# thrift==0.20.0
+
+# Tests
+pytest==8.3.3

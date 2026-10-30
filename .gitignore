@@ -1,0 +1,21 @@
+# Secrets et configuration locale
+.env
+
+# Données produites par la chaîne
+data/
+*.db
+*.sqlite3
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Outils
+.idea/
+.vscode/
+.DS_Store

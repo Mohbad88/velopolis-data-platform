@@ -1,0 +1,23 @@
+# PostgreSQL 16 pour exécuter la chaîne sur la cible de production.
+# Démarrage : docker compose up -d
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: velopolis-postgres
+    environment:
+      POSTGRES_USER: velopolis
+      POSTGRES_PASSWORD: velopolis       # développement uniquement
+      POSTGRES_DB: velopolis_socle
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./scripts/init_bases.sql:/docker-entrypoint-initdb.d/10-bases.sql:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U velopolis -d velopolis_socle"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+volumes:
+  pgdata:
