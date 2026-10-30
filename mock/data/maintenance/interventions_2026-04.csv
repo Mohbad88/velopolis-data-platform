@@ -1,0 +1,121 @@
+id_intervention;id_vehicule;date_intervention;type_panne;piece_changee;duree;cout;prestataire
+INT-00195;VLO-00073;23/04/2026;frein;phare avant;74 min;112,59;AtelierPlus
+INT-00186;VLO-00082;27/04/2026;chaîne;phare avant;98 min;94,32;AtelierPlus
+INT-00159;VLO-00072;05/04/2026;chaîne;chambre à air;103 min;60,96;AtelierPlus
+INT-00199;VLO-00099;09/04/2026;chaîne;batterie 36V;136 min;50,41;AtelierPlus
+INT-00205;VLO-00102;18/04/2026;chaîne;;175 min;72,84;AtelierPlus
+INT-00203;VLO-00032;06/04/2026;chaîne;chaîne;165 min;80,61;AtelierPlus
+INT-00191;VLO-00047;14/04/2026;vandalisme;chambre à air;146 min;34,10;AtelierPlus
+INT-00185;VLO-00004;04/04/2026;chaîne;plaquette;17 min;98,20;AtelierPlus
+INT-00209;VLO-00084;06/04/2026;frein;batterie 36V;100 min;116,64;AtelierPlus
+INT-00250;VLO-99999;2026-02-30;frein;;30;n/a;AtelierPlus
+INT-00134;VLO-00052;12/04/2026;éclairage;chaîne;43 min;11,64;AtelierPlus
+INT-00133;VLO-00085;28/04/2026;vandalisme;chaîne;47 min;47,47;AtelierPlus
+INT-00166;VLO-00089;24/04/2026;chaîne;;73 min;90,54;AtelierPlus
+INT-00194;VLO-00035;26/04/2026;batterie;plaquette;56 min;69,66;AtelierPlus
+INT-00248;VLO-00031;19/04/2026;frein;chaîne;113 min;63,90;AtelierPlus
+INT-00156;VLO-00044;21/04/2026;vandalisme;chambre à air;19 min;65,15;AtelierPlus
+INT-00171;VLO-00074;28/04/2026;pneu crevé;;139 min;51,98;AtelierPlus
+INT-00230;VLO-00100;09/04/2026;batterie;phare avant;47 min;95,01;AtelierPlus
+INT-00143;VLO-00056;07/04/2026;vandalisme;phare avant;35 min;15,62;AtelierPlus
+INT-00235;VLO-00105;08/04/2026;éclairage;chaîne;144 min;55,09;AtelierPlus
+INT-00216;VLO-00078;18/04/2026;chaîne;chaîne;24 min;89,04;AtelierPlus
+INT-00145;VLO-00117;19/04/2026;éclairage;batterie 36V;32 min;106,19;AtelierPlus
+INT-00139;VLO-00026;15/04/2026;batterie;;71 min;90,34;AtelierPlus
+INT-00184;VLO-00008;17/04/2026;vandalisme;chaîne;64 min;62,37;AtelierPlus
+INT-00211;VLO-00035;13/04/2026;chaîne;chaîne;178 min;33,99;AtelierPlus
+INT-00226;VLO-00084;25/04/2026;frein;chambre à air;66 min;36,18;AtelierPlus
+INT-00249;VLO-00103;08/04/2026;chaîne;;11 min;56,40;AtelierPlus
+INT-00165;VLO-00003;22/04/2026;éclairage;phare avant;158 min;40,73;AtelierPlus
+INT-00160;VLO-00083;05/04/2026;vandalisme;;92 min;86,67;AtelierPlus
+INT-00164;VLO-00102;18/04/2026;vandalisme;;12 min;40,91;AtelierPlus
+INT-00152;VLO-00037;20/04/2026;chaîne;plaquette;31 min;38,35;AtelierPlus
+INT-00197;VLO-00097;10/04/2026;batterie;chambre à air;70 min;48,85;AtelierPlus
+INT-00246;VLO-00090;17/04/2026;éclairage;batterie 36V;93 min;51,74;AtelierPlus
+INT-00147;VLO-00076;11/04/2026;pneu crevé;chaîne;92 min;120,34;AtelierPlus
+INT-00169;VLO-00037;16/04/2026;éclairage;batterie 36V;62 min;114,39;AtelierPlus
+INT-00220;VLO-00020;02/04/2026;frein;chaîne;151 min;111,31;AtelierPlus
+INT-00247;VLO-00084;08/04/2026;frein;plaquette;138 min;34,27;AtelierPlus
+INT-00212;VLO-00110;04/04/2026;pneu crevé;batterie 36V;102 min;29,05;AtelierPlus
+INT-00149;VLO-00089;24/04/2026;frein;;60 min;26,77;AtelierPlus
+INT-00242;VLO-00047;02/04/2026;frein;batterie 36V;20 min;18,21;AtelierPlus
+INT-00137;VLO-00084;03/04/2026;pneu crevé;chaîne;114 min;76,23;AtelierPlus
+INT-00188;VLO-00065;25/04/2026;éclairage;plaquette;92 min;113,53;AtelierPlus
+INT-00177;VLO-00070;12/04/2026;chaîne;;135 min;107,48;AtelierPlus
+INT-00234;VLO-00036;08/04/2026;chaîne;;152 min;8,85;AtelierPlus
+INT-00135;VLO-00112;12/04/2026;chaîne;phare avant;75 min;63,68;AtelierPlus
+INT-00224;VLO-00072;13/04/2026;batterie;chambre à air;118 min;71,74;AtelierPlus
+INT-00189;VLO-00056;14/04/2026;batterie;phare avant;86 min;113,58;AtelierPlus
+INT-00229;VLO-00101;06/04/2026;frein;chambre à air;40 min;50,28;AtelierPlus
+INT-00174;VLO-00028;21/04/2026;pneu crevé;;130 min;51,88;AtelierPlus
+INT-00148;VLO-00052;13/04/2026;batterie;chaîne;90 min;17,37;AtelierPlus
+INT-00182;VLO-00061;27/04/2026;vandalisme;plaquette;165 min;54,95;AtelierPlus
+INT-00163;VLO-00082;20/04/2026;frein;;61 min;25,39;AtelierPlus
+INT-00245;VLO-00076;22/04/2026;éclairage;batterie 36V;96 min;59,58;AtelierPlus
+INT-00153;VLO-00081;28/04/2026;frein;chambre à air;40 min;13,95;AtelierPlus
+INT-00181;VLO-00032;28/04/2026;frein;phare avant;112 min;24,82;AtelierPlus
+INT-00155;VLO-00006;18/04/2026;frein;;140 min;64,08;AtelierPlus
+INT-00215;VLO-00043;22/04/2026;frein;;81 min;61,81;AtelierPlus
+INT-00214;VLO-00071;04/04/2026;batterie;;170 min;48,88;AtelierPlus
+INT-00146;VLO-00026;16/04/2026;pneu crevé;chaîne;50 min;113,57;AtelierPlus
+INT-00221;VLO-00044;10/04/2026;éclairage;chaîne;92 min;80,86;AtelierPlus
+INT-00193;VLO-00118;22/04/2026;chaîne;chaîne;116 min;93,03;AtelierPlus
+INT-00144;VLO-00117;14/04/2026;frein;phare avant;86 min;67,56;AtelierPlus
+INT-00179;VLO-00012;12/04/2026;chaîne;;110 min;93,84;AtelierPlus
+INT-00210;VLO-00037;04/04/2026;pneu crevé;chaîne;165 min;69,52;AtelierPlus
+INT-00196;VLO-00080;13/04/2026;frein;phare avant;140 min;99,46;AtelierPlus
+INT-00204;VLO-00079;28/04/2026;éclairage;plaquette;13 min;18,67;AtelierPlus
+INT-00208;VLO-00077;20/04/2026;frein;phare avant;36 min;102,09;AtelierPlus
+INT-00162;VLO-00097;26/04/2026;frein;;49 min;24,62;AtelierPlus
+INT-00206;VLO-00057;06/04/2026;pneu crevé;chambre à air;167 min;90,55;AtelierPlus
+INT-00161;VLO-00116;24/04/2026;pneu crevé;;117 min;9,97;AtelierPlus
+INT-00141;VLO-00044;15/04/2026;vandalisme;chaîne;124 min;6,59;AtelierPlus
+INT-00223;VLO-00058;15/04/2026;pneu crevé;chambre à air;147 min;47,73;AtelierPlus
+INT-00200;VLO-00021;13/04/2026;pneu crevé;batterie 36V;51 min;9,54;AtelierPlus
+;;;;;;;
+INT-00219;VLO-00001;17/04/2026;vandalisme;plaquette;171 min;81,23;AtelierPlus
+INT-00228;VLO-00040;18/04/2026;batterie;phare avant;177 min;31,50;AtelierPlus
+INT-00168;VLO-00025;28/04/2026;pneu crevé;batterie 36V;149 min;55,65;AtelierPlus
+INT-00233;VLO-00056;12/04/2026;pneu crevé;phare avant;94 min;23,64;AtelierPlus
+INT-00142;VLO-00008;12/04/2026;frein;phare avant;130 min;119,10;AtelierPlus
+INT-00167;VLO-00085;23/04/2026;chaîne;chambre à air;173 min;100,55;AtelierPlus
+INT-00227;VLO-00081;16/04/2026;batterie;;115 min;44,13;AtelierPlus
+INT-00136;VLO-00093;03/04/2026;éclairage;;171 min;7,61;AtelierPlus
+INT-00150;VLO-00033;10/04/2026;pneu crevé;;83 min;91,18;AtelierPlus
+INT-00178;VLO-00071;19/04/2026;batterie;batterie 36V;146 min;32,79;AtelierPlus
+INT-00154;VLO-00031;03/04/2026;chaîne;chambre à air;24 min;13,83;AtelierPlus
+INT-00133;VLO-00085;28/04/2026;vandalisme;chaîne;47 min;47,47;AtelierPlus
+INT-00213;VLO-00107;14/04/2026;chaîne;batterie 36V;94 min;56,11;AtelierPlus
+INT-00217;VLO-00076;27/04/2026;éclairage;;27 min;41,77;AtelierPlus
+INT-00218;VLO-00023;09/04/2026;éclairage;chambre à air;170 min;47,53;AtelierPlus
+INT-00175;VLO-00037;14/04/2026;chaîne;plaquette;141 min;18,02;AtelierPlus
+INT-00187;VLO-00081;07/04/2026;éclairage;chambre à air;176 min;55,57;AtelierPlus
+INT-00151;VLO-00016;09/04/2026;vandalisme;batterie 36V;91 min;26,70;AtelierPlus
+INT-00237;VLO-00115;02/04/2026;pneu crevé;chaîne;40 min;74,58;AtelierPlus
+INT-00207;VLO-00077;28/04/2026;batterie;batterie 36V;144 min;35,12;AtelierPlus
+INT-00173;VLO-00111;12/04/2026;vandalisme;phare avant;117 min;99,22;AtelierPlus
+INT-00140;VLO-00019;24/04/2026;frein;batterie 36V;101 min;106,97;AtelierPlus
+INT-00244;VLO-00047;16/04/2026;pneu crevé;plaquette;32 min;98,16;AtelierPlus
+INT-00232;VLO-00096;23/04/2026;batterie;chambre à air;107 min;14,71;AtelierPlus
+INT-00190;VLO-00044;10/04/2026;chaîne;chambre à air;113 min;92,22;AtelierPlus
+INT-00180;VLO-00086;11/04/2026;vandalisme;plaquette;97 min;87,81;AtelierPlus
+INT-00231;VLO-00033;15/04/2026;vandalisme;phare avant;141 min;61,89;AtelierPlus
+INT-00170;VLO-00070;13/04/2026;frein;;87 min;91,11;AtelierPlus
+INT-00183;VLO-00119;06/04/2026;éclairage;;11 min;102,72;AtelierPlus
+INT-00225;VLO-00072;11/04/2026;éclairage;;65 min;92,91;AtelierPlus
+INT-00239;VLO-00015;19/04/2026;vandalisme;phare avant;115 min;109,63;AtelierPlus
+INT-00201;VLO-00097;14/04/2026;éclairage;chambre à air;92 min;40,00;AtelierPlus
+INT-00138;VLO-00095;12/04/2026;chaîne;;44 min;102,30;AtelierPlus
+INT-00172;VLO-00099;18/04/2026;chaîne;;121 min;86,69;AtelierPlus
+INT-00192;VLO-00048;26/04/2026;batterie;plaquette;16 min;62,89;AtelierPlus
+INT-00202;VLO-00013;14/04/2026;éclairage;chambre à air;138 min;8,44;AtelierPlus
+INT-00157;VLO-00084;25/04/2026;frein;batterie 36V;163 min;77,12;AtelierPlus
+INT-00222;VLO-00032;02/04/2026;frein;batterie 36V;30 min;15,01;AtelierPlus
+INT-00243;VLO-00033;28/04/2026;vandalisme;chambre à air;30 min;87,02;AtelierPlus
+INT-00158;VLO-00092;09/04/2026;batterie;plaquette;110 min;31,05;AtelierPlus
+INT-00236;VLO-00024;11/04/2026;pneu crevé;plaquette;51 min;71,08;AtelierPlus
+INT-00241;VLO-00009;24/04/2026;chaîne;;154 min;74,14;AtelierPlus
+INT-00238;VLO-00086;16/04/2026;chaîne;chaîne;149 min;7,05;AtelierPlus
+INT-00176;VLO-00096;23/04/2026;frein;chaîne;65 min;114,68;AtelierPlus
+INT-00198;VLO-00083;09/04/2026;batterie;chaîne;14 min;29,77;AtelierPlus
+INT-00240;VLO-00024;11/04/2026;éclairage;chaîne;38 min;60,98;AtelierPlus

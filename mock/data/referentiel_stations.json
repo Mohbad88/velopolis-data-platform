@@ -1,0 +1,202 @@
+[
+ {
+  "id_station": "ST-001",
+  "nom": "Station 001",
+  "quartier": "Sud-Gare",
+  "capacite": 24,
+  "latitude": 48.117999,
+  "longitude": -1.630825
+ },
+ {
+  "id_station": "ST-002",
+  "nom": "Station 002",
+  "quartier": "Centre",
+  "capacite": 12,
+  "latitude": 48.144578,
+  "longitude": -1.666049
+ },
+ {
+  "id_station": "ST-003",
+  "nom": "Station 003",
+  "quartier": "Maurepas",
+  "capacite": 20,
+  "latitude": 48.115611,
+  "longitude": -1.6939
+ },
+ {
+  "id_station": "ST-004",
+  "nom": "Station 004",
+  "quartier": "Sud-Gare",
+  "capacite": 16,
+  "latitude": 48.148984,
+  "longitude": -1.663749
+ },
+ {
+  "id_station": "ST-005",
+  "nom": "Station 005",
+  "quartier": "Centre",
+  "capacite": 16,
+  "latitude": 48.136337,
+  "longitude": -1.655054
+ },
+ {
+  "id_station": "ST-006",
+  "nom": "Station 006",
+  "quartier": "Sud-Gare",
+  "capacite": 12,
+  "latitude": 48.13904,
+  "longitude": -1.708095
+ },
+ {
+  "id_station": "ST-007",
+  "nom": "Station 007",
+  "quartier": "Villejean",
+  "capacite": 24,
+  "latitude": 48.140197,
+  "longitude": -1.685573
+ },
+ {
+  "id_station": "ST-008",
+  "nom": "Station 008",
+  "quartier": "Sud-Gare",
+  "capacite": 16,
+  "latitude": 48.090266,
+  "longitude": -1.699701
+ },
+ {
+  "id_station": "ST-009",
+  "nom": "Station 009",
+  "quartier": "Beaulieu",
+  "capacite": 20,
+  "latitude": 48.098127,
+  "longitude": -1.663493
+ },
+ {
+  "id_station": "ST-010",
+  "nom": "Station 010",
+  "quartier": "Beaulieu",
+  "capacite": 20,
+  "latitude": 48.113392,
+  "longitude": -1.711276
+ },
+ {
+  "id_station": "ST-011",
+  "nom": "Station 011",
+  "quartier": "Beaulieu",
+  "capacite": 16,
+  "latitude": 48.108356,
+  "longitude": -1.669229
+ },
+ {
+  "id_station": "ST-012",
+  "nom": "Station 012",
+  "quartier": "Beaulieu",
+  "capacite": 20,
+  "latitude": 48.149174,
+  "longitude": -1.645339
+ },
+ {
+  "id_station": "ST-013",
+  "nom": "Station 013",
+  "quartier": "Sud-Gare",
+  "capacite": 24,
+  "latitude": 48.107567,
+  "longitude": -1.692241
+ },
+ {
+  "id_station": "ST-014",
+  "nom": "Station 014",
+  "quartier": "Sud-Gare",
+  "capacite": 16,
+  "latitude": 48.090152,
+  "longitude": -1.645954
+ },
+ {
+  "id_station": "ST-015",
+  "nom": "Station 015",
+  "quartier": "Sud-Gare",
+  "capacite": 24,
+  "latitude": 48.139885,
+  "longitude": -1.639584
+ },
+ {
+  "id_station": "ST-016",
+  "nom": "Station 016",
+  "quartier": "Maurepas",
+  "capacite": 20,
+  "latitude": 48.118618,
+  "longitude": -1.632721
+ },
+ {
+  "id_station": "ST-017",
+  "nom": "Station 017",
+  "quartier": "Sud-Gare",
+  "capacite": 24,
+  "latitude": 48.141951,
+  "longitude": -1.705295
+ },
+ {
+  "id_station": "ST-018",
+  "nom": "Station 018",
+  "quartier": "Centre",
+  "capacite": 24,
+  "latitude": 48.129641,
+  "longitude": -1.655372
+ },
+ {
+  "id_station": "ST-019",
+  "nom": "Station 019",
+  "quartier": "Centre",
+  "capacite": 16,
+  "latitude": 48.117544,
+  "longitude": -1.691821
+ },
+ {
+  "id_station": "ST-020",
+  "nom": "Station 020",
+  "quartier": "Sud-Gare",
+  "capacite": 20,
+  "latitude": 48.143865,
+  "longitude": -1.686596
+ },
+ {
+  "id_station": "ST-021",
+  "nom": "Station 021",
+  "quartier": "Centre",
+  "capacite": 24,
+  "latitude": 48.137108,
+  "longitude": -1.671596
+ },
+ {
+  "id_station": "ST-022",
+  "nom": "Station 022",
+  "quartier": "Villejean",
+  "capacite": 12,
+  "latitude": 48.101097,
+  "longitude": -1.673775
+ },
+ {
+  "id_station": "ST-023",
+  "nom": "Station 023",
+  "quartier": "Beaulieu",
+  "capacite": 20,
+  "latitude": 48.149213,
+  "longitude": -1.69885
+ },
+ {
+  "id_station": "ST-024",
+  "nom": "Station 024",
+  "quartier": "Villejean",
+  "capacite": 16,
+  "latitude": 48.134502,
+  "longitude": -1.642168
+ },
+ {
+  "id_station": "ST-025",
+  "nom": "Station 025",
+  "quartier": "Villejean",
+  "capacite": 24,
+  "latitude": 48.148344,
+  "longitude": -1.666928
+ }
+]

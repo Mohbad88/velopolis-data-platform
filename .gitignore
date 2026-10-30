@@ -1,10 +1,16 @@
 # Secrets et configuration locale
 .env
 
-# Données produites par la chaîne
-data/
+# Données produites par la chaîne (racine du projet uniquement)
+/data/
 *.db
 *.sqlite3
+
+# Jeux de test volumineux : régénérés par `make fixtures`
+mock/data/telemetrie.json
+mock/data/meteo.json
+sql/fixtures/seed_source_postgres.sql
+sql/fixtures/seed_source_sqlite.sql
 
 # Python
 __pycache__/

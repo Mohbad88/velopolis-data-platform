@@ -1,0 +1,135 @@
+id_intervention;id_vehicule;date_intervention;type_panne;piece_changee;duree;cout;prestataire
+INT-00095;VLO-00007;2026-03-17;chaîne;batterie 36V;124;100.17;AtelierPlus
+INT-00077;VLO-00066;2026-03-09;chaîne;plaquette;78;14.37;AtelierPlus
+INT-00003;VLO-00092;2026-03-16;éclairage;plaquette;22;75.30;AtelierPlus
+INT-00112;VLO-00071;2026-03-14;chaîne;chambre à air;92;110.68;AtelierPlus
+INT-00015;VLO-00083;2026-03-08;chaîne;batterie 36V;134;44.87;AtelierPlus
+INT-00044;VLO-00053;2026-03-24;pneu crevé;plaquette;94;56.74;AtelierPlus
+INT-00085;VLO-00037;2026-03-15;batterie;phare avant;144;73.03;AtelierPlus
+INT-00079;VLO-00077;2026-03-13;chaîne;chaîne;160;76.72;AtelierPlus
+INT-00024;VLO-00041;2026-03-18;batterie;chambre à air;52;46.24;AtelierPlus
+INT-00038;VLO-00035;2026-03-20;chaîne;batterie 36V;169;89.29;AtelierPlus
+INT-00111;VLO-00039;2026-03-11;éclairage;chaîne;18;80.37;AtelierPlus
+INT-00064;VLO-00069;2026-03-04;pneu crevé;chaîne;31;118.52;AtelierPlus
+INT-00121;VLO-00022;2026-03-08;vandalisme;plaquette;26;39.75;AtelierPlus
+INT-00035;VLO-00020;2026-03-05;batterie;;44;117.18;AtelierPlus
+INT-00002;VLO-00025;2026-03-10;éclairage;plaquette;110;71.07;AtelierPlus
+INT-00004;VLO-00069;2026-03-10;batterie;batterie 36V;175;9.15;AtelierPlus
+INT-00092;VLO-00058;2026-03-01;frein;chaîne;145;79.44;AtelierPlus
+INT-00013;VLO-00068;2026-03-14;batterie;chambre à air;77;35.93;AtelierPlus
+INT-00031;VLO-00047;2026-03-02;chaîne;batterie 36V;87;8.62;AtelierPlus
+INT-00056;VLO-00018;2026-03-07;chaîne;chaîne;156;13.80;AtelierPlus
+INT-00012;VLO-00062;2026-03-27;batterie;plaquette;154;80.39;AtelierPlus
+INT-00127;VLO-00091;2026-03-22;pneu crevé;chaîne;172;101.69;AtelierPlus
+INT-00006;VLO-00085;2026-03-27;éclairage;chambre à air;175;34.75;AtelierPlus
+INT-00014;VLO-00076;2026-03-01;pneu crevé;plaquette;65;80.49;AtelierPlus
+INT-00130;VLO-00110;2026-03-27;vandalisme;batterie 36V;114;41.97;AtelierPlus
+INT-00113;VLO-00105;2026-03-28;chaîne;;51;21.48;AtelierPlus
+INT-00097;VLO-00092;2026-03-03;vandalisme;chaîne;24;22.87;AtelierPlus
+INT-00072;VLO-00053;2026-03-10;frein;phare avant;105;51.95;AtelierPlus
+INT-00052;VLO-00097;2026-03-28;pneu crevé;batterie 36V;132;114.31;AtelierPlus
+INT-00027;VLO-00119;2026-03-09;chaîne;batterie 36V;123;26.06;AtelierPlus
+INT-00011;VLO-00076;2026-03-10;pneu crevé;chaîne;32;31.14;AtelierPlus
+INT-00129;VLO-00011;2026-03-28;pneu crevé;batterie 36V;29;105.01;AtelierPlus
+INT-00007;VLO-00031;2026-03-27;batterie;batterie 36V;62;30.65;AtelierPlus
+INT-00070;VLO-00108;2026-03-08;éclairage;chaîne;40;100.83;AtelierPlus
+INT-00108;VLO-00015;2026-03-23;pneu crevé;chambre à air;162;103.48;AtelierPlus
+INT-00029;VLO-00071;2026-03-03;pneu crevé;chambre à air;13;113.16;AtelierPlus
+INT-00055;VLO-00049;2026-03-07;frein;plaquette;46;61.71;AtelierPlus
+INT-00090;VLO-00021;2026-03-15;batterie;plaquette;151;80.02;AtelierPlus
+INT-00023;VLO-00105;2026-03-21;frein;chaîne;92;65.92;AtelierPlus
+INT-00119;VLO-00115;2026-03-15;frein;chambre à air;16;104.65;AtelierPlus
+INT-00076;VLO-00068;2026-03-26;chaîne;plaquette;170;35.47;AtelierPlus
+INT-00001;VLO-00085;2026-03-19;chaîne;chambre à air;153;34.35;AtelierPlus
+INT-00068;VLO-00084;2026-03-10;batterie;chambre à air;70;12.74;AtelierPlus
+INT-00101;VLO-00084;2026-03-18;chaîne;chaîne;41;24.05;AtelierPlus
+INT-00109;VLO-00011;2026-03-11;frein;;68;46.54;AtelierPlus
+INT-00008;VLO-00033;2026-03-19;batterie;chambre à air;72;45.49;AtelierPlus
+INT-00087;VLO-00066;2026-03-24;chaîne;batterie 36V;125;79.60;AtelierPlus
+INT-00010;VLO-00020;2026-03-16;vandalisme;chaîne;163;113.33;AtelierPlus
+INT-00046;VLO-00011;2026-03-02;vandalisme;plaquette;78;12.51;AtelierPlus
+INT-00094;VLO-00035;2026-03-01;batterie;phare avant;164;113.60;AtelierPlus
+INT-00047;VLO-00009;2026-03-04;pneu crevé;chaîne;71;53.51;AtelierPlus
+INT-00005;VLO-00047;2026-03-17;frein;batterie 36V;18;22.13;AtelierPlus
+INT-00048;VLO-00073;2026-03-22;batterie;;62;22.60;AtelierPlus
+INT-00106;VLO-00039;2026-03-01;pneu crevé;chambre à air;154;101.02;AtelierPlus
+INT-00104;VLO-00090;2026-03-06;vandalisme;batterie 36V;14;52.69;AtelierPlus
+INT-00122;VLO-00093;2026-03-24;chaîne;plaquette;109;11.99;AtelierPlus
+INT-00036;VLO-00015;2026-03-02;chaîne;chambre à air;78;111.04;AtelierPlus
+INT-00045;VLO-00005;2026-03-21;éclairage;phare avant;78;118.96;AtelierPlus
+INT-00001;VLO-00085;2026-03-19;chaîne;chambre à air;153;34.35;AtelierPlus
+INT-00120;VLO-00077;2026-03-04;vandalisme;batterie 36V;129;23.60;AtelierPlus
+INT-00093;VLO-00039;2026-03-16;pneu crevé;plaquette;60;65.89;AtelierPlus
+INT-00125;VLO-00081;2026-03-02;batterie;plaquette;165;45.05;AtelierPlus
+INT-00065;VLO-00029;2026-03-24;frein;chambre à air;163;86.14;AtelierPlus
+INT-00028;VLO-00109;2026-03-12;chaîne;chambre à air;124;85.63;AtelierPlus
+INT-00060;VLO-00057;2026-03-08;chaîne;;72;85.64;AtelierPlus
+INT-00098;VLO-00024;2026-03-07;batterie;phare avant;159;114.24;AtelierPlus
+INT-00067;VLO-00101;2026-03-02;vandalisme;;99;11.01;AtelierPlus
+INT-00074;VLO-00096;2026-03-06;batterie;chaîne;96;52.32;AtelierPlus
+INT-00016;VLO-00013;2026-03-08;pneu crevé;;167;109.87;AtelierPlus
+INT-00110;VLO-00009;2026-03-27;éclairage;chaîne;150;95.26;AtelierPlus
+INT-00088;VLO-00107;2026-03-24;batterie;chaîne;18;88.84;AtelierPlus
+INT-00131;VLO-00042;2026-03-23;pneu crevé;;148;10.24;AtelierPlus
+INT-00022;VLO-00027;2026-03-09;frein;;69;116.70;AtelierPlus
+INT-00043;VLO-00029;2026-03-04;vandalisme;phare avant;172;100.34;AtelierPlus
+INT-00066;VLO-00079;2026-03-27;pneu crevé;plaquette;30;79.71;AtelierPlus
+INT-00103;VLO-00119;2026-03-21;éclairage;;167;22.28;AtelierPlus
+;;;;;;;
+INT-00100;VLO-00099;2026-03-28;pneu crevé;batterie 36V;141;76.05;AtelierPlus
+INT-00116;VLO-00105;2026-03-26;vandalisme;chambre à air;37;54.36;AtelierPlus
+INT-00017;VLO-00117;2026-03-13;batterie;batterie 36V;79;70.31;AtelierPlus
+INT-00051;VLO-00079;2026-03-08;chaîne;chaîne;86;44.67;AtelierPlus
+INT-00078;VLO-00049;2026-03-21;batterie;batterie 36V;54;104.40;AtelierPlus
+INT-00034;VLO-00056;2026-03-19;pneu crevé;chambre à air;75;40.61;AtelierPlus
+INT-00099;VLO-00038;2026-03-07;pneu crevé;chaîne;156;117.32;AtelierPlus
+INT-00124;VLO-00052;2026-03-28;vandalisme;;91;73.07;AtelierPlus
+INT-00082;VLO-00043;2026-03-01;vandalisme;phare avant;72;88.05;AtelierPlus
+INT-00018;VLO-00051;2026-03-28;vandalisme;chambre à air;180;27.11;AtelierPlus
+INT-00059;VLO-00061;2026-03-18;éclairage;chaîne;157;6.96;AtelierPlus
+INT-00033;VLO-00088;2026-03-11;éclairage;;156;37.94;AtelierPlus
+INT-00069;VLO-00023;2026-03-06;éclairage;;85;33.67;AtelierPlus
+INT-00032;VLO-00091;2026-03-15;chaîne;;114;84.79;AtelierPlus
+INT-00128;VLO-00013;2026-03-23;frein;chaîne;61;48.95;AtelierPlus
+INT-00091;VLO-00057;2026-03-06;vandalisme;chaîne;169;113.14;AtelierPlus
+INT-00039;VLO-00118;2026-03-20;chaîne;chambre à air;106;28.15;AtelierPlus
+INT-00084;VLO-00052;2026-03-01;chaîne;chambre à air;25;22.14;AtelierPlus
+INT-00050;VLO-00080;2026-03-13;éclairage;plaquette;119;14.55;AtelierPlus
+INT-00019;VLO-00079;2026-03-14;batterie;plaquette;100;117.82;AtelierPlus
+INT-00123;VLO-00092;2026-03-21;batterie;;54;60.61;AtelierPlus
+INT-00115;VLO-00106;2026-03-28;éclairage;;102;72.04;AtelierPlus
+INT-00083;VLO-00052;2026-03-08;vandalisme;phare avant;170;96.74;AtelierPlus
+INT-00061;VLO-00001;2026-03-11;chaîne;;44;29.22;AtelierPlus
+INT-00105;VLO-00015;2026-03-02;batterie;chaîne;104;104.32;AtelierPlus
+INT-00075;VLO-00028;2026-03-09;pneu crevé;phare avant;107;102.22;AtelierPlus
+INT-00118;VLO-00061;2026-03-27;frein;plaquette;156;34.05;AtelierPlus
+INT-00102;VLO-00078;2026-03-19;batterie;plaquette;105;45.28;AtelierPlus
+INT-00020;VLO-00031;2026-03-05;vandalisme;batterie 36V;127;6.50;AtelierPlus
+INT-00132;VLO-99999;2026-02-30;frein;;30;n/a;AtelierPlus
+INT-00081;VLO-00058;2026-03-07;chaîne;;149;47.32;AtelierPlus
+INT-00117;VLO-00065;2026-03-11;frein;phare avant;51;110.11;AtelierPlus
+INT-00040;VLO-00093;2026-03-18;frein;chaîne;60;66.87;AtelierPlus
+INT-00126;VLO-00074;2026-03-27;chaîne;chambre à air;57;33.08;AtelierPlus
+INT-00021;VLO-00035;2026-03-16;vandalisme;chaîne;158;65.68;AtelierPlus
+INT-00086;VLO-00095;2026-03-08;chaîne;phare avant;144;63.26;AtelierPlus
+INT-00054;VLO-00060;2026-03-12;batterie;batterie 36V;159;90.31;AtelierPlus
+INT-00107;VLO-00113;2026-03-18;chaîne;batterie 36V;132;69.00;AtelierPlus
+INT-00073;VLO-00105;2026-03-25;vandalisme;;65;21.56;AtelierPlus
+INT-00062;VLO-00026;2026-03-18;batterie;plaquette;14;51.06;AtelierPlus
+INT-00057;VLO-00061;2026-03-09;éclairage;phare avant;134;20.21;AtelierPlus
+INT-00042;VLO-00087;2026-03-23;batterie;phare avant;180;18.91;AtelierPlus
+INT-00037;VLO-00030;2026-03-21;chaîne;chambre à air;164;32.93;AtelierPlus
+INT-00030;VLO-00085;2026-03-27;vandalisme;phare avant;24;101.38;AtelierPlus
+INT-00114;VLO-00043;2026-03-13;frein;phare avant;99;18.50;AtelierPlus
+INT-00041;VLO-00066;2026-03-25;vandalisme;phare avant;64;25.83;AtelierPlus
+INT-00049;VLO-00063;2026-03-17;chaîne;batterie 36V;71;111.84;AtelierPlus
+INT-00080;VLO-00050;2026-03-16;vandalisme;batterie 36V;74;98.39;AtelierPlus
+INT-00009;VLO-00112;2026-03-15;frein;plaquette;103;98.50;AtelierPlus
+INT-00058;VLO-00025;2026-03-11;chaîne;chambre à air;61;57.08;AtelierPlus
+INT-00053;VLO-00056;2026-03-06;chaîne;chaîne;106;58.04;AtelierPlus
+INT-00063;VLO-00092;2026-03-17;éclairage;;129;63.87;AtelierPlus
+INT-00026;VLO-00015;2026-03-15;frein;plaquette;19;14.48;AtelierPlus
+INT-00089;VLO-00105;2026-03-15;batterie;batterie 36V;164;9.71;AtelierPlus
+INT-00025;VLO-00060;2026-03-11;vandalisme;batterie 36V;165;54.64;AtelierPlus
+INT-00071;VLO-00042;2026-03-14;vandalisme;batterie 36V;162;19.73;AtelierPlus
+INT-00096;VLO-00066;2026-03-09;éclairage;chambre à air;58;108.58;AtelierPlus
