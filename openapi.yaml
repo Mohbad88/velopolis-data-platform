@@ -1,0 +1,402 @@
+openapi: 3.0.3
+info:
+  title: Vélopolis — socle de données de la flotte
+  version: "1.0.0"
+  description: |
+    Mise à disposition du socle de données technique de la flotte : référentiels,
+    état horaire consolidé des véhicules, interventions de maintenance, relevés
+    météo, tarifs relevés chez le concurrent et locations pseudonymisées.
+
+    **Authentification.** OAuth 2.0, flux *client credentials*. Le client obtient
+    un jeton JWT auprès de `POST /api/v1/token`, puis le présente dans l'en-tête
+    `Authorization: Bearer <jeton>`. Le jeton expire au bout d'une heure.
+
+    **Autorisation.** Chaque point de terminaison exige une portée :
+    `flotte:lire` (données non personnelles), `locations:lire` (locations
+    pseudonymisées — données personnelles indirectes), `exploitation:lire`
+    (journal d'ingestion et qualité).
+
+    **Pagination.** Tous les points de terminaison de liste acceptent `limite`
+    (1 à 1000, défaut 100) et `decalage`, et renvoient un bloc `pagination`.
+
+    **Protection des données.** Aucun identifiant direct d'abonné n'est exposé.
+    Les traces GPS brutes ne sont accessibles par aucune portée. Les accès aux
+    locations sont journalisés côté serveur.
+  contact:
+    name: DSI Vélopolis
+    email: dsi@velopolis.fr
+  license:
+    name: Usage interne Vélopolis
+
+servers:
+  - url: http://127.0.0.1:8000
+    description: Poste de développement
+  - url: https://socle.velopolis.fr
+    description: Production (TLS obligatoire)
+
+tags:
+  - name: Service
+  - name: Référentiels
+  - name: Données consolidées
+  - name: Données personnelles
+  - name: Exploitation
+
+paths:
+  /api/v1/sante:
+    get:
+      tags: [Service]
+      summary: Sonde de disponibilité
+      description: Interroge réellement la base et renvoie le volume de chaque table.
+      security: []
+      responses:
+        "200":
+          description: Service disponible
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  statut: { type: string, example: disponible }
+                  volumes:
+                    type: object
+                    additionalProperties: { type: integer }
+        "503":
+          description: Base injoignable
+
+  /api/v1/token:
+    post:
+      tags: [Service]
+      summary: Obtenir un jeton d'accès
+      security: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [client_id, client_secret]
+              properties:
+                client_id: { type: string, example: tableau-de-bord }
+                client_secret: { type: string, format: password }
+                scope:
+                  type: string
+                  description: Portées demandées, séparées par des espaces. Par défaut, toutes celles du client.
+                  example: flotte:lire
+      responses:
+        "200":
+          description: Jeton délivré
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  access_token: { type: string }
+                  token_type: { type: string, example: Bearer }
+                  expires_in: { type: integer, example: 3600 }
+                  scope: { type: string, example: "flotte:lire" }
+        "400": { description: Portée demandée non accordée à ce client }
+        "401": { description: Identifiant ou secret invalide }
+
+  /api/v1/portees:
+    get:
+      tags: [Service]
+      summary: Lister les portées et ce qu'elles donnent
+      security: []
+      responses:
+        "200": { description: Liste des portées }
+
+  /api/v1/vehicules:
+    get:
+      tags: [Référentiels]
+      summary: Référentiel des véhicules
+      security: [{ bearerAuth: [flotte:lire] }]
+      parameters:
+        - $ref: "#/components/parameters/limite"
+        - $ref: "#/components/parameters/decalage"
+      responses:
+        "200":
+          description: Liste paginée
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/ReponsePaginee"
+                  - type: object
+                    properties:
+                      donnees:
+                        type: array
+                        items: { $ref: "#/components/schemas/Vehicule" }
+        "401": { $ref: "#/components/responses/NonAuthentifie" }
+        "403": { $ref: "#/components/responses/PorteeInsuffisante" }
+
+  /api/v1/vehicules/{id_vehicule}/etat:
+    get:
+      tags: [Référentiels]
+      summary: Dernier état connu d'un véhicule
+      security: [{ bearerAuth: [flotte:lire] }]
+      parameters:
+        - name: id_vehicule
+          in: path
+          required: true
+          schema: { type: string, example: VLO-00007 }
+      responses:
+        "200":
+          description: État courant
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  donnees: { $ref: "#/components/schemas/EtatVehicule" }
+        "401": { $ref: "#/components/responses/NonAuthentifie" }
+        "404": { description: Véhicule inconnu }
+
+  /api/v1/stations:
+    get:
+      tags: [Référentiels]
+      summary: Référentiel des stations
+      security: [{ bearerAuth: [flotte:lire] }]
+      parameters:
+        - $ref: "#/components/parameters/limite"
+        - $ref: "#/components/parameters/decalage"
+      responses:
+        "200": { description: Liste paginée }
+        "401": { $ref: "#/components/responses/NonAuthentifie" }
+
+  /api/v1/flotte/horaire:
+    get:
+      tags: [Données consolidées]
+      summary: Jeu de données consolidé, à la maille véhicule × heure
+      description: |
+        Jeu unique issu de l'agrégation des six sources : état de chaque véhicule
+        heure par heure, enrichi de la météo de sa zone, des locations de l'heure
+        et de la présence d'une intervention de maintenance le jour même.
+      security: [{ bearerAuth: [flotte:lire] }]
+      parameters:
+        - name: debut
+          in: query
+          schema: { type: string, format: date-time }
+          example: "2026-05-12T08:00:00"
+        - name: fin
+          in: query
+          schema: { type: string, format: date-time }
+        - name: zone
+          in: query
+          schema: { type: string, enum: [centre, nord, sud, ouest] }
+        - name: id_vehicule
+          in: query
+          schema: { type: string }
+        - name: tri
+          in: query
+          schema: { type: string, enum: [heure, id_vehicule, recette_eur, nb_locations], default: heure }
+        - $ref: "#/components/parameters/limite"
+        - $ref: "#/components/parameters/decalage"
+      responses:
+        "200":
+          description: Liste paginée
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/ReponsePaginee"
+                  - type: object
+                    properties:
+                      donnees:
+                        type: array
+                        items: { $ref: "#/components/schemas/FlotteHoraire" }
+        "401": { $ref: "#/components/responses/NonAuthentifie" }
+
+  /api/v1/interventions:
+    get:
+      tags: [Données consolidées]
+      summary: Interventions de maintenance
+      security: [{ bearerAuth: [flotte:lire] }]
+      parameters:
+        - name: id_vehicule
+          in: query
+          schema: { type: string }
+        - name: depuis
+          in: query
+          schema: { type: string, format: date }
+        - $ref: "#/components/parameters/limite"
+        - $ref: "#/components/parameters/decalage"
+      responses:
+        "200": { description: Liste paginée }
+        "401": { $ref: "#/components/responses/NonAuthentifie" }
+
+  /api/v1/tarifs-concurrent:
+    get:
+      tags: [Données consolidées]
+      summary: Grille tarifaire relevée chez le concurrent
+      security: [{ bearerAuth: [flotte:lire] }]
+      parameters:
+        - $ref: "#/components/parameters/limite"
+        - $ref: "#/components/parameters/decalage"
+      responses:
+        "200": { description: Liste paginée }
+
+  /api/v1/locations:
+    get:
+      tags: [Données personnelles]
+      summary: Locations pseudonymisées
+      description: |
+        Données personnelles indirectes : l'abonné n'apparaît que sous forme de
+        pseudonyme HMAC et son âge sous forme de tranche. Portée dédiée, accès
+        journalisé. Toute tentative de réidentification est contraire à la
+        finalité déclarée du traitement.
+      security: [{ bearerAuth: [locations:lire] }]
+      parameters:
+        - name: debut
+          in: query
+          schema: { type: string, format: date-time }
+        - name: fin
+          in: query
+          schema: { type: string, format: date-time }
+        - $ref: "#/components/parameters/limite"
+        - $ref: "#/components/parameters/decalage"
+      responses:
+        "200":
+          description: Liste paginée
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: "#/components/schemas/ReponsePaginee"
+                  - type: object
+                    properties:
+                      donnees:
+                        type: array
+                        items: { $ref: "#/components/schemas/Location" }
+                      avertissement: { type: string }
+        "403": { $ref: "#/components/responses/PorteeInsuffisante" }
+
+  /api/v1/exploitation/journal:
+    get:
+      tags: [Exploitation]
+      summary: Journal des exécutions d'ingestion
+      security: [{ bearerAuth: [exploitation:lire] }]
+      parameters:
+        - $ref: "#/components/parameters/limite"
+        - $ref: "#/components/parameters/decalage"
+      responses:
+        "200": { description: Liste paginée }
+
+  /api/v1/exploitation/qualite:
+    get:
+      tags: [Exploitation]
+      summary: Synthèse des lignes mises en quarantaine, par motif
+      security: [{ bearerAuth: [exploitation:lire] }]
+      responses:
+        "200": { description: Comptage par source et par motif }
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  parameters:
+    limite:
+      name: limite
+      in: query
+      description: Nombre maximal de lignes (1 à 1000).
+      schema: { type: integer, minimum: 1, maximum: 1000, default: 100 }
+    decalage:
+      name: decalage
+      in: query
+      description: Nombre de lignes à sauter.
+      schema: { type: integer, minimum: 0, default: 0 }
+
+  responses:
+    NonAuthentifie:
+      description: Jeton absent, invalide ou expiré
+      content:
+        application/json:
+          schema: { $ref: "#/components/schemas/Erreur" }
+    PorteeInsuffisante:
+      description: Le jeton ne porte pas la portée exigée
+      content:
+        application/json:
+          schema: { $ref: "#/components/schemas/Erreur" }
+
+  schemas:
+    Erreur:
+      type: object
+      properties:
+        erreur: { type: string, example: portee_insuffisante }
+        message: { type: string }
+
+    ReponsePaginee:
+      type: object
+      properties:
+        pagination:
+          type: object
+          properties:
+            limite: { type: integer }
+            decalage: { type: integer }
+            retournees: { type: integer }
+            page_suivante: { type: boolean }
+
+    Vehicule:
+      type: object
+      properties:
+        id_vehicule: { type: string, example: VLO-00007 }
+        type: { type: string, enum: [velo, trottinette] }
+        modele: { type: string }
+        date_mise_service: { type: string, format: date }
+
+    EtatVehicule:
+      type: object
+      properties:
+        id_vehicule: { type: string }
+        horodatage: { type: string, format: date-time }
+        latitude: { type: number }
+        longitude: { type: number }
+        batterie_pct: { type: integer, minimum: 0, maximum: 100 }
+        statut: { type: string, enum: [disponible, en_location, hors_service, en_charge] }
+        id_station: { type: string, nullable: true }
+        zone: { type: string, nullable: true }
+
+    FlotteHoraire:
+      type: object
+      properties:
+        id_vehicule: { type: string }
+        type_vehicule: { type: string }
+        heure: { type: string, format: date-time }
+        zone: { type: string, nullable: true }
+        nb_releves: { type: integer }
+        batterie_min_pct: { type: integer, nullable: true }
+        batterie_moy_pct: { type: number, nullable: true }
+        statut_dominant: { type: string }
+        latitude_moy: { type: number, nullable: true }
+        longitude_moy: { type: number, nullable: true }
+        temperature_c: { type: number, nullable: true }
+        precipitation_mm: { type: number, nullable: true }
+        vent_kmh: { type: number, nullable: true }
+        nb_locations: { type: integer }
+        duree_location_min: { type: number }
+        recette_eur: { type: number }
+        en_maintenance: { type: integer, enum: [0, 1] }
+
+    Location:
+      type: object
+      properties:
+        id_location: { type: integer }
+        id_abonne_psd:
+          type: string
+          description: Pseudonyme HMAC-SHA256, non réversible sans la clé de la DSI.
+          example: AB-3fb59eb06cb1fa14
+        tranche_age: { type: string, nullable: true, example: "45-54" }
+        type_abonnement: { type: string }
+        id_vehicule: { type: string }
+        id_station_depart: { type: string, nullable: true }
+        id_station_arrivee: { type: string, nullable: true }
+        debut: { type: string, format: date-time }
+        fin: { type: string, format: date-time }
+        duree_min: { type: number }
+        distance_km: { type: number, nullable: true }
+        montant_eur: { type: number }
+
+security:
+  - bearerAuth: []
