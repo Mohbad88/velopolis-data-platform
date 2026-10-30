@@ -1,0 +1,26 @@
+graph MCD { rankdir=LR; bgcolor=white; splines=true; nodesep=0.5; ranksep=0.9;
+node [fontname="Helvetica", fontsize=10];
+edge [fontname="Helvetica", fontsize=9, color="#404040"];
+// entités
+node [shape=record, style=filled, fillcolor="#DEEAF6", color="#1F3864"];
+V [label="{VEHICULE|_id_vehicule_\l type\l modele\l date_mise_service\l}"];
+S [label="{STATION|_id_station_\l nom\l quartier\l capacite\l latitude, longitude\l}"];
+A [label="{ABONNE (pseudonymisé)|_id_abonne_psd_\l tranche_age\l type_abonnement\l ville\l}"];
+T [label="{TEMPS|_horodatage_\l date, heure\l}"];
+Z [label="{ZONE|_code_zone_\l}"];
+O [label="{OPERATEUR CONCURRENT|_nom_\l}"];
+// associations
+node [shape=ellipse, style=filled, fillcolor="#FCE4D6", color="#843C0C", height=0.5];
+r1 [label="émet un relevé\n(position, batterie,\nstatut)"];
+r2 [label="loue\n(debut, fin, duree,\ndistance, montant)"];
+r3 [label="subit une intervention\n(panne, piece, duree, cout)"];
+r4 [label="est relevée\n(météo)"];
+r5 [label="publie\nun tarif"];
+r6 [label="trace\nun point GPS"];
+V -- r1 [label="1,n"]; r1 -- T [label="1,n"]; r1 -- S [label="0,n"];
+A -- r2 [label="0,n"]; r2 -- V [label="0,n"]; r2 -- S [label="0,n"];
+V -- r3 [label="0,n"]; r3 -- T [label="1,1"];
+Z -- r4 [label="1,n"]; r4 -- T [label="1,n"];
+O -- r5 [label="1,n"]; r5 -- T [label="1,1"];
+V -- r6 [label="0,n"]; r6 -- T [label="1,n"];
+}

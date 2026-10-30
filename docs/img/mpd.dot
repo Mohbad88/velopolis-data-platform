@@ -1,0 +1,71 @@
+digraph MPD { rankdir=TB; bgcolor=white; nodesep=0.4; ranksep=0.8; splines=ortho;
+node [shape=plaintext, fontname="Helvetica", fontsize=9];
+edge [color="#843C0C", arrowhead=crow, arrowtail=none, fontname="Helvetica", fontsize=8];
+V [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="3">
+<TR><TD BGCOLOR="#1F3864"><FONT COLOR="white"><B>dim_vehicule</B></FONT></TD></TR>
+<TR><TD ALIGN="LEFT" BGCOLOR="#DEEAF6"><B>id_vehicule</B> varchar(16) PK</TD></TR>
+<TR><TD ALIGN="LEFT">type varchar(16)</TD></TR><TR><TD ALIGN="LEFT">modele varchar(64)</TD></TR>
+<TR><TD ALIGN="LEFT">date_mise_service date</TD></TR></TABLE>>];
+S [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="3">
+<TR><TD BGCOLOR="#1F3864"><FONT COLOR="white"><B>dim_station</B></FONT></TD></TR>
+<TR><TD ALIGN="LEFT" BGCOLOR="#DEEAF6"><B>id_station</B> varchar(16) PK</TD></TR>
+<TR><TD ALIGN="LEFT">nom, quartier</TD></TR><TR><TD ALIGN="LEFT">capacite smallint</TD></TR>
+<TR><TD ALIGN="LEFT">latitude, longitude numeric(9,6)</TD></TR></TABLE>>];
+T [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="3">
+<TR><TD BGCOLOR="#843C0C"><FONT COLOR="white"><B>fait_telemetrie</B></FONT></TD></TR>
+<TR><TD ALIGN="LEFT" BGCOLOR="#FCE4D6"><B>id_telemetrie</B> bigserial PK</TD></TR>
+<TR><TD ALIGN="LEFT"><I>id_vehicule</I> FK</TD></TR><TR><TD ALIGN="LEFT">horodatage timestamptz</TD></TR>
+<TR><TD ALIGN="LEFT">latitude, longitude</TD></TR><TR><TD ALIGN="LEFT">batterie_pct smallint</TD></TR>
+<TR><TD ALIGN="LEFT">statut varchar(16)</TD></TR><TR><TD ALIGN="LEFT"><I>id_station</I> FK</TD></TR>
+<TR><TD ALIGN="LEFT">zone varchar(16)</TD></TR>
+<TR><TD ALIGN="LEFT" BGCOLOR="#FFF2CC">UQ (id_vehicule, horodatage)</TD></TR></TABLE>>];
+L [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="3">
+<TR><TD BGCOLOR="#843C0C"><FONT COLOR="white"><B>fait_location</B></FONT></TD></TR>
+<TR><TD ALIGN="LEFT" BGCOLOR="#FCE4D6"><B>id_location</B> integer PK</TD></TR>
+<TR><TD ALIGN="LEFT">id_abonne_psd varchar(32)</TD></TR><TR><TD ALIGN="LEFT">tranche_age, type_abonnement</TD></TR>
+<TR><TD ALIGN="LEFT"><I>id_vehicule</I> FK</TD></TR><TR><TD ALIGN="LEFT"><I>id_station_depart/arrivee</I> FK</TD></TR>
+<TR><TD ALIGN="LEFT">debut, fin timestamptz</TD></TR><TR><TD ALIGN="LEFT">duree_min, distance_km, montant_eur</TD></TR></TABLE>>];
+I [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="3">
+<TR><TD BGCOLOR="#843C0C"><FONT COLOR="white"><B>fait_intervention</B></FONT></TD></TR>
+<TR><TD ALIGN="LEFT" BGCOLOR="#FCE4D6"><B>id_intervention</B> varchar(16) PK</TD></TR>
+<TR><TD ALIGN="LEFT"><I>id_vehicule</I> FK</TD></TR><TR><TD ALIGN="LEFT">date_intervention date</TD></TR>
+<TR><TD ALIGN="LEFT">type_panne, piece_changee</TD></TR><TR><TD ALIGN="LEFT">duree_min, cout_eur</TD></TR>
+<TR><TD ALIGN="LEFT">prestataire, fichier_origine</TD></TR></TABLE>>];
+G [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="3">
+<TR><TD BGCOLOR="#843C0C"><FONT COLOR="white"><B>fait_trace_gps</B></FONT></TD></TR>
+<TR><TD ALIGN="LEFT" BGCOLOR="#FCE4D6"><B>id_trace</B> bigserial PK</TD></TR>
+<TR><TD ALIGN="LEFT"><I>id_vehicule</I> FK</TD></TR><TR><TD ALIGN="LEFT">id_trajet varchar(32)</TD></TR>
+<TR><TD ALIGN="LEFT">horodatage timestamptz</TD></TR><TR><TD ALIGN="LEFT">latitude, longitude</TD></TR>
+<TR><TD ALIGN="LEFT">vitesse_kmh numeric(5,1)</TD></TR></TABLE>>];
+M [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="3">
+<TR><TD BGCOLOR="#843C0C"><FONT COLOR="white"><B>fait_meteo</B></FONT></TD></TR>
+<TR><TD ALIGN="LEFT" BGCOLOR="#FCE4D6"><B>id_meteo</B> bigserial PK</TD></TR>
+<TR><TD ALIGN="LEFT">zone varchar(16)</TD></TR><TR><TD ALIGN="LEFT">horodatage timestamptz</TD></TR>
+<TR><TD ALIGN="LEFT">temperature_c, precipitation_mm, vent_kmh</TD></TR>
+<TR><TD ALIGN="LEFT" BGCOLOR="#FFF2CC">UQ (zone, horodatage)</TD></TR></TABLE>>];
+C [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="3">
+<TR><TD BGCOLOR="#7F7F7F"><FONT COLOR="white"><B>ref_tarif_concurrent</B></FONT></TD></TR>
+<TR><TD ALIGN="LEFT" BGCOLOR="#F2F2F2"><B>id_tarif</B> bigserial PK</TD></TR>
+<TR><TD ALIGN="LEFT">date_collecte, operateur, offre</TD></TR>
+<TR><TD ALIGN="LEFT">prix_deblocage/minute/abonnement</TD></TR></TABLE>>];
+H [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="3">
+<TR><TD BGCOLOR="#375623"><FONT COLOR="white"><B>socle_flotte_horaire</B></FONT></TD></TR>
+<TR><TD ALIGN="LEFT" BGCOLOR="#E2EFDA"><B>id_vehicule, heure</B> PK</TD></TR>
+<TR><TD ALIGN="LEFT">type_vehicule, zone</TD></TR><TR><TD ALIGN="LEFT">nb_releves, batterie_min/moy</TD></TR>
+<TR><TD ALIGN="LEFT">statut_dominant, latitude/longitude_moy</TD></TR>
+<TR><TD ALIGN="LEFT">temperature_c, precipitation_mm, vent_kmh</TD></TR>
+<TR><TD ALIGN="LEFT">nb_locations, duree_location_min, recette_eur</TD></TR>
+<TR><TD ALIGN="LEFT">en_maintenance</TD></TR></TABLE>>];
+J [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="3">
+<TR><TD BGCOLOR="#7F7F7F"><FONT COLOR="white"><B>journal_ingestion</B></FONT></TD></TR>
+<TR><TD ALIGN="LEFT" BGCOLOR="#F2F2F2"><B>id_execution</B> PK</TD></TR>
+<TR><TD ALIGN="LEFT">source, etape, execute_le</TD></TR>
+<TR><TD ALIGN="LEFT">lignes_lues/gardees/rejetees</TD></TR><TR><TD ALIGN="LEFT">duree_s, statut, detail</TD></TR></TABLE>>];
+Q [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="3">
+<TR><TD BGCOLOR="#7F7F7F"><FONT COLOR="white"><B>quarantaine_qualite</B></FONT></TD></TR>
+<TR><TD ALIGN="LEFT" BGCOLOR="#F2F2F2"><B>id_rejet</B> PK</TD></TR>
+<TR><TD ALIGN="LEFT">source, motif</TD></TR><TR><TD ALIGN="LEFT">detecte_le, contenu</TD></TR></TABLE>>];
+V -> T; V -> L; V -> I; V -> G; V -> H;
+S -> T; S -> L;
+{rank=same; C; J; Q;}
+}

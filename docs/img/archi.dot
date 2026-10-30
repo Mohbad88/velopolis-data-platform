@@ -1,0 +1,28 @@
+digraph A { rankdir=LR; bgcolor=white; nodesep=0.3; ranksep=0.9;
+node [shape=box, style="rounded,filled", fontname="Helvetica", fontsize=10, color="#1F3864", fillcolor="#DEEAF6", width=2.2];
+edge [color="#404040", fontname="Helvetica-Bold", fontsize=8];
+subgraph cluster_s { label="Sources (fournies par la DSI)"; fontname="Helvetica-Bold"; color="#7F7F7F"; fontsize=11;
+ s1[label="API REST boîtiers IoT\n(Bearer, pagination)"];
+ s2[label="API météo publique"];
+ s3[label="CSV mensuels\nmaintenance"];
+ s4[label="Site public concurrent\n(scraping)"];
+ s5[label="PostgreSQL transactionnel\n(réplica lecture)"];
+ s6[label="Hive — gps_traces\n(partitionné par jour)"]; }
+subgraph cluster_e { label="Extraction"; fontname="Helvetica-Bold"; color="#7F7F7F"; fontsize=11;
+ e[label="velopolis.extract\nreprise sur erreur, quotas,\npseudonymisation à la source", fillcolor="#E2EFDA", color="#375623"]; }
+subgraph cluster_b { label="Zone brute"; fontname="Helvetica-Bold"; color="#7F7F7F"; fontsize=11;
+ b[label="data/raw\nJSONL + CSV\nrejouable à l'identique", fillcolor="#FCE4D6", color="#843C0C"]; }
+subgraph cluster_t { label="Agrégation"; fontname="Helvetica-Bold"; color="#7F7F7F"; fontsize=11;
+ t[label="velopolis.transform\ncontrôles qualité,\nhomogénéisation, consolidation", fillcolor="#E2EFDA", color="#375623"];
+ q[label="data/quarantine\nlignes écartées + motif", fillcolor="#FFF2CC", color="#7F6000"]; }
+subgraph cluster_c { label="Zone consolidée"; fontname="Helvetica-Bold"; color="#7F7F7F"; fontsize=11;
+ c[label="data/curated\njeu unique\nvéhicule × heure", fillcolor="#FCE4D6", color="#843C0C"]; }
+subgraph cluster_d { label="Socle"; fontname="Helvetica-Bold"; color="#1F3864"; fontsize=11;
+ d[label="PostgreSQL 16\n11 tables, 3 rôles\nCOPY FROM STDIN", fillcolor="#DEEAF6"]; }
+subgraph cluster_a { label="Mise à disposition"; fontname="Helvetica-Bold"; color="#7F7F7F"; fontsize=11;
+ a[label="API REST (Flask)\nOAuth2 · JWT · portées\nOpenAPI 3.0", fillcolor="#E2EFDA", color="#375623"];
+ g[label="Accès direct SQL\n(rôle analyste,\nlecture seule)", fillcolor="#E2EFDA", color="#375623"]; }
+s1->e; s2->e; s3->e; s4->e; s5->e; s6->e;
+e->b->t->c->d; t->q[style=dashed];
+d->a; d->g;
+}
