@@ -385,11 +385,11 @@ def main() -> None:
         with (rep / "part-00000.csv").open("w", encoding="utf-8", newline="") as fh:
             csv.writer(fh).writerows(lignes)
 
+    fixtures = ROOT / "sql" / "fixtures"
+    fixtures.mkdir(parents=True, exist_ok=True)
     postgres = sql_source(vehs, stats)
-    (ROOT / "sql" / "fixtures" / "seed_source_postgres.sql").write_text(postgres, encoding="utf-8")
-    (ROOT / "sql" / "fixtures" / "seed_source_sqlite.sql").write_text(
-        vers_sqlite(postgres), encoding="utf-8"
-    )
+    (fixtures / "seed_source_postgres.sql").write_text(postgres, encoding="utf-8")
+    (fixtures / "seed_source_sqlite.sql").write_text(vers_sqlite(postgres), encoding="utf-8")
     print("Jeux de test générés dans mock/data, mock/warehouse et sql/fixtures.")
 
 
