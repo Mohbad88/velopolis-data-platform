@@ -1,5 +1,5 @@
-graph MCD { rankdir=LR; bgcolor=white; splines=true; nodesep=0.5; ranksep=0.9;
-node [fontname="Helvetica", fontsize=10];
+graph MCD { rankdir=TB; bgcolor=white; splines=true; nodesep=0.45; ranksep=0.75;
+node [fontname="Helvetica", fontsize=13];
 edge [fontname="Helvetica", fontsize=9, color="#404040"];
 // entités
 node [shape=record, style=filled, fillcolor="#DEEAF6", color="#1F3864"];

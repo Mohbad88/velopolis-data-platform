@@ -67,5 +67,9 @@ Q [label=<<TABLE BORDER="0" CELLBORDER="1" CELLSPACING="0" CELLPADDING="3">
 <TR><TD ALIGN="LEFT">source, motif</TD></TR><TR><TD ALIGN="LEFT">detecte_le, contenu</TD></TR></TABLE>>];
 V -> T; V -> L; V -> I; V -> G; V -> H;
 S -> T; S -> L;
-{rank=same; C; J; Q;}
+{rank=same; V; S; M;}
+{rank=same; T; L; I; G;}
+{rank=same; H; C; J; Q;}
+T -> H [style=invis]; T -> C [style=invis]; T -> J [style=invis]; T -> Q [style=invis];
+M -> G [style=invis];
 }
