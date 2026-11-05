@@ -50,7 +50,7 @@ def base(tmp_path_factory):
 def client(base):
     import velopolis.config as config_module
 
-    config_module.config = config_module.Config()  # relit DB_URL
+    config_module.config = config_module.Config(db_url=os.environ["DB_URL"])
     import velopolis.db as db
 
     db.config = config_module.config

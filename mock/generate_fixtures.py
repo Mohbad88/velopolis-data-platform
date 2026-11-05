@@ -390,7 +390,20 @@ def main() -> None:
     postgres = sql_source(vehs, stats)
     (fixtures / "seed_source_postgres.sql").write_text(postgres, encoding="utf-8")
     (fixtures / "seed_source_sqlite.sql").write_text(vers_sqlite(postgres), encoding="utf-8")
+    initialiser_source_sqlite(fixtures / "seed_source_sqlite.sql")
     print("Jeux de test générés dans mock/data, mock/warehouse et sql/fixtures.")
+
+
+def initialiser_source_sqlite(fichier_sql: Path) -> None:
+    import sys
+
+    sys.path.insert(0, str(ROOT / "src"))
+    from velopolis.config import config
+    from velopolis.db import executer_script
+
+    if config.source_db_url.startswith("sqlite:///"):
+        executer_script(fichier_sql, config.source_db_url)
+        print("Base source SQLite initialisée.")
 
 
 if __name__ == "__main__":

@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 # Déroulé de la démonstration (point 9 du sujet).
 # Chaque appel est commenté : ce que l'on montre, et ce qu'il faut regarder.
-set -u
+set -euo pipefail
 export PYTHONPATH=src
 API=${API:-http://127.0.0.1:8000}
 JQ() { python3 -m json.tool; }
 titre() { printf '\n\033[1;34m== %s\033[0m\n' "$*"; }
 
 titre "1. La chaîne complète : extraction, agrégation, schéma, import"
-python3 -m velopolis.cli pipeline 2>&1 | grep -E "lues=|importées|Chaîne"
+python3 -m velopolis.cli pipeline
 
 titre "2. Disponibilité du service (sans authentification)"
 curl -s "$API/api/v1/sante" | JQ
